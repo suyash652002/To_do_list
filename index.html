@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TO_DO LIST</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="path/to/fontawesome.min.css">    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+        <div>
+            <img src="PinClipart.com_check-list-clipart_5469564.png" class = "image">
+        </div>
+        <div class = "container">
+            <h2 class = "text">TO_DO LIST</h2>
+            <input type = "text" id = "input" placeholder= "Enter the task you want to add... ">
+            <ul></ul>
+        </div>
+
+        <script type = "text/javascript">
+            $(document).ready(function(){
+                
+                $('#input').change(function(){
+                    var input = $(this).val();
+                    $('ul').append('<li>' + input + ' <i class = "fas fa-check"></i> <i class = "fas fa-trash"></i> </li>')
+                    $(this).val();
+                });
+
+                $('ul').on('click', '.fa-check', function(){
+                    $(this).parent('li').toggleClass('checked');
+                    $(this).parent('li').fadeOut(500);
+                });
+                
+                $('ul').on('click', '.fa-trash', function(){
+                    $(this).parent('li').fadeOut(250);
+                });
+            });
+        </script>
+    </body>
+</html>
